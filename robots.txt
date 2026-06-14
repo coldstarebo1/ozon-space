@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://USERNAME.github.io/ozon-space/sitemap.xml
+Sitemap: https://coldstarebo1.github.io/ozon-space/sitemap.xml
