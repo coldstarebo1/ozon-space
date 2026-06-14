@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет | OZON Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="OZON Space - коворкинг центр для складов, ПВЗ и логистики. Аренда помещений от 50 м².">
+<meta name="keywords" content="коворкинг, склад, ПВЗ, логистика, аренда, OZON">
+<meta name="robots" content="index, follow">
+
+<!-- Для поисковиков -->
+<meta name="yandex-verification" content="код_из_Яндекс_Вебмастер">
+<meta name="google-site-verification" content="код_из_Google_Search">
+
+<!-- Open Graph -->
+<meta property="og:title" content="OZON Space | Коворкинг центр">
+<meta property="og:description" content="Современные пространства для бизнеса">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://USERNAME.github.io/ozon-space/">
+</head>
+<body class="dashboard-page">
+    <nav class="navbar dashboard-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">OZON <span class="highlight">Space</span></span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#orders" class="nav-link active"><i class="fas fa-clipboard-list"></i> Мои заявки</a></li>
+                    <li><a href="#" class="nav-link" id="newOrderLink"><i class="fas fa-plus-circle"></i> Новая заявка</a></li>
+                    <li>
+                        <div class="user-menu">
+                            <div class="user-avatar" id="userAvatar"><i class="fas fa-user"></i></div>
+                            <div class="user-info">
+                                <div class="user-name" id="headerUserName">Клиент</div>
+                                <div class="user-role">Клиент</div>
+                            </div>
+                            <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Выйти</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="welcome-section fade-in">
+                <div class="welcome-content">
+                    <h1>Добро пожаловать, <span id="welcomeName">Клиент</span>! 👋</h1>
+                    <p>Управляйте вашими заявками и отслеживайте статусы в реальном времени</p>
+                </div>
+                <button class="btn btn-primary btn-lg" id="createOrderBtn"><i class="fas fa-plus"></i> Создать заявку</button>
+            </div>
+
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <div class="stat-icon bg-blue"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statTotal">0</div>
+                        <div class="stat-label">Всего заявок</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-orange"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statPending">0</div>
+                        <div class="stat-label">Ожидают оплаты</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-green"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statPaid">0</div>
+                        <div class="stat-label">Оплачено</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-purple"><i class="fas fa-ruble-sign"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statSpent">0 ₽</div>
+                        <div class="stat-label">Всего потрачено</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-services fade-in">
+                <h2 class="section-title-small">Быстрые заявки</h2>
+                <div class="quick-services-grid">
+                    <div class="quick-service-card" data-service="ПВЗ">
+                        <div class="qs-icon pvz"><i class="fas fa-store"></i></div>
+                        <h3>ПВЗ</h3>
+                        <p>от 55 000 ₽/мес</p>
+                        <button class="btn btn-sm">Оформить</button>
+                    </div>
+                    <div class="quick-service-card" data-service="Склад">
+                        <div class="qs-icon sklad"><i class="fas fa-warehouse"></i></div>
+                        <h3>Склад</h3>
+                        <p>от 700 ₽/м²/мес</p>
+                        <button class="btn btn-sm">Оформить</button>
+                    </div>
+                    <div class="quick-service-card" data-service="Логистика">
+                        <div class="qs-icon logist"><i class="fas fa-truck"></i></div>
+                        <h3>Логистика</h3>
+                        <p>от 78 000 ₽/мес</p>
+                        <button class="btn btn-sm">Оформить</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orders-section fade-in" id="orders">
+                <div class="section-header-row">
+                    <h2 class="section-title-small">История заявок</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="new">Новые</button>
+                        <button class="filter-btn" data-filter="priced">Ожидают оплаты</button>
+                        <button class="filter-btn" data-filter="paid">Оплачено</button>
+                    </div>
+                </div>
+                <div class="orders-list" id="ordersList"></div>
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="fas fa-inbox"></i>
+                    <h3>У вас пока нет заявок</h3>
+                    <p>Создайте первую заявку, чтобы начать работу</p>
+                    <button class="btn btn-primary" id="emptyCreateBtn"><i class="fas fa-plus"></i> Создать заявку</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно быстрой заявки -->
+    <div class="modal-overlay" id="quickOrderModal">
+        <div class="modal-content modal-lg">
+            <button class="modal-close" id="closeQuickOrderModal"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2><i class="fas fa-bolt"></i> Быстрая заявка</h2>
+                <p>Заполните форму и мы свяжемся с вами в течение 24 часов</p>
+            </div>
+            <form id="quickOrderFormModal" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Ваше имя *</label>
+                        <input type="text" id="qoName" required placeholder="Иван Петров">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Телефон *</label>
+                        <input type="tel" id="qoPhone" required placeholder="+7 (999) 000-00-00">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="qoEmail" placeholder="example@mail.ru">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-list"></i> Услуга *</label>
+                        <select id="qoService" required>
+                            <option value="">Выберите услугу</option>
+                            <option value="ПВЗ">Пункт выдачи заказов (ПВЗ)</option>
+                            <option value="Склад">Складское помещение</option>
+                            <option value="Логистика">Логистика и развозки</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="qoAreaGroup" style="display: none;">
+                    <label><i class="fas fa-ruler-combined"></i> Желаемая площадь (м²)</label>
+                    <input type="number" id="qoArea" min="50" max="1000" placeholder="Например: 200">
+                    <small>💡 Цена для склада: 700 ₽/м²</small>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-comment"></i> Пожелания</label>
+                    <textarea id="qoMessage" rows="3" placeholder="Расскажите о ваших требованиях..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="cancelQuickOrder">Отмена</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Отправить заявку</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно оплаты -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-content modal-sm">
+            <button class="modal-close" id="closePaymentModal"><i class="fas fa-times"></i></button>
+            <div class="payment-modal-content">
+                <div class="payment-icon"><i class="fas fa-credit-card"></i></div>
+                <h2>Оплата заявки</h2>
+                <div class="payment-details" id="paymentDetails"></div>
+                <div class="payment-methods">
+                    <h4>Выберите способ оплаты:</h4>
+                    <div class="payment-method selected"><i class="fas fa-credit-card"></i><span>Банковская карта</span></div>
+                    <div class="payment-method"><i class="fas fa-mobile-alt"></i><span>СБП</span></div>
+                    <div class="payment-method"><i class="fas fa-wallet"></i><span>Электронный кошелёк</span></div>
+                </div>
+                <button class="btn btn-primary btn-block btn-lg" id="confirmPaymentBtn"><i class="fas fa-lock"></i> Оплатить</button>
+                <p class="payment-secure"><i class="fas fa-shield-alt"></i> Безопасная оплата через защищённое соединение</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Кнопка открытия чата -->
+<button class="chat-toggle-btn" id="chatToggleBtn">
+    <i class="fas fa-comments"></i>
+    <span class="chat-badge">1</span>
+</button>
+
+<!-- Окно чата -->
+<div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <div class="chat-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div>
+                <h4>Поддержка OZON Space</h4>
+                <span class="chat-status">Онлайн</span>
+            </div>
+        </div>
+        <button class="chat-close" id="chatCloseBtn">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="chat-messages" id="chatMessages">
+        <div class="chat-message bot">
+            <div class="message-content">
+                <p>Здравствуйте! 👋 Я виртуальный помощник OZON Space. Чем могу помочь?</p>
+            </div>
+            <div class="message-time">Сейчас</div>
+        </div>
+        
+        <div class="chat-suggestions">
+            <button class="suggestion-btn" data-question="Как подать заявку?">Как подать заявку?</button>
+            <button class="suggestion-btn" data-question="Какие цены на услуги?">Какие цены?</button>
+            <button class="suggestion-btn" data-question="Как оплатить?">Как оплатить?</button>
+            <button class="suggestion-btn" data-question="Сроки рассмотрения">Сроки рассмотрения</button>
+        </div>
+    </div>
+    
+    <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Напишите ваш вопрос..." autocomplete="off">
+        <button class="chat-send" id="chatSendBtn">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+</body>
+</html>

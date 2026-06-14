@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в систему | OZON Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="OZON Space - коворкинг центр для складов, ПВЗ и логистики. Аренда помещений от 50 м².">
+<meta name="keywords" content="коворкинг, склад, ПВЗ, логистика, аренда, OZON">
+<meta name="robots" content="index, follow">
+
+<!-- Для поисковиков -->
+<meta name="yandex-verification" content="код_из_Яндекс_Вебмастер">
+<meta name="google-site-verification" content="код_из_Google_Search">
+
+<!-- Open Graph -->
+<meta property="og:title" content="OZON Space | Коворкинг центр">
+<meta property="og:description" content="Современные пространства для бизнеса">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://USERNAME.github.io/ozon-space/">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-info">
+            <div class="auth-info-content">
+                <div class="logo-large">
+                    <span class="logo-text">OZON <span class="highlight">Space</span></span>
+                </div>
+                <h1>Добро пожаловать</h1>
+                <p>Войдите в личный кабинет для управления заявками или создайте новый аккаунт</p>
+                <div class="auth-features">
+                    <div class="auth-feature">
+                        <i class="fas fa-bolt"></i>
+                        <div><h4>Быстрая обработка</h4><p>Заявки обрабатываются в течение 24 часов</p></div>
+                    </div>
+                    <div class="auth-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <div><h4>Безопасность</h4><p>Ваши данные надёжно защищены</p></div>
+                    </div>
+                    <div class="auth-feature">
+                        <i class="fas fa-headset"></i>
+                        <div><h4>Поддержка 24/7</h4><p>Всегда на связи для помощи</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-forms">
+            <a href="index.html" class="back-to-site"><i class="fas fa-arrow-left"></i> На главную</a>
+
+            <div class="auth-form-wrapper active" id="loginWrapper">
+                <div class="auth-header">
+                    <h2>Вход в аккаунт</h2>
+                    <p>Введите ваши данные для входа</p>
+                </div>
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="loginEmail" required placeholder="your@email.com" autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword"><i class="fas fa-lock"></i> Пароль</label>
+                        <div class="password-input">
+                            <input type="password" id="loginPassword" required placeholder="••••••••" autocomplete="current-password">
+                            <button type="button" class="toggle-password" data-target="loginPassword"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Запомнить меня</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-sign-in-alt"></i> Войти</button>
+                    <div class="auth-divider"><span>или</span></div>
+                    <button type="button" class="btn btn-outline btn-block" id="showRegisterBtn"><i class="fas fa-user-plus"></i> Создать аккаунт</button>
+                </form>
+            </div>
+
+            <div class="auth-form-wrapper" id="registerWrapper">
+                <div class="auth-header">
+                    <h2>Регистрация</h2>
+                    <p>Создайте аккаунт для начала работы</p>
+                </div>
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="registerName"><i class="fas fa-user"></i> ФИО *</label>
+                        <input type="text" id="registerName" required placeholder="Иванов Иван Иванович" autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail"><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" id="registerEmail" required placeholder="your@email.com" autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPhone"><i class="fas fa-phone"></i> Телефон *</label>
+                        <input type="tel" id="registerPhone" required placeholder="+7 (999) 000-00-00" autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword"><i class="fas fa-lock"></i> Пароль *</label>
+                        <div class="password-input">
+                            <input type="password" id="registerPassword" required placeholder="Минимум 6 символов" autocomplete="new-password" minlength="6">
+                            <button type="button" class="toggle-password" data-target="registerPassword"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="password-strength" id="passwordStrength"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirm"><i class="fas fa-lock"></i> Подтвердите пароль *</label>
+                        <div class="password-input">
+                            <input type="password" id="registerConfirm" required placeholder="••••••••" autocomplete="new-password">
+                            <button type="button" class="toggle-password" data-target="registerConfirm"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>Я согласен с <a href="#" class="terms-link">условиями использования</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-user-plus"></i> Зарегистрироваться</button>
+                    <div class="auth-divider"><span>или</span></div>
+                    <button type="button" class="btn btn-outline btn-block" id="showLoginBtn"><i class="fas fa-sign-in-alt"></i> Уже есть аккаунт? Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+    <!-- Модальное окно условий использования -->
+<div class="modal-overlay" id="termsModal">
+    <div class="modal-content modal-lg">
+        <button class="modal-close" id="closeTermsModal"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <h2><i class="fas fa-file-contract"></i> Условия использования</h2>
+            <p>Последнее обновление: 14.06.2026</p>
+        </div>
+        <div class="terms-content">
+            <h3>1. Общие положения</h3>
+            <p>Настоящие Условия использования регулируют отношения между пользователем и сервисом OZON Space. Регистрируясь на сайте, вы подтверждаете своё согласие с данными условиями.</p>
+            
+            <h3>2. Регистрация и аккаунт</h3>
+            <p>2.1. Пользователь обязуется предоставить достоверную информацию при регистрации.</p>
+            <p>2.2. Пользователь несёт ответственность за сохранность своего пароля.</p>
+            <p>2.3. Администрация вправе заблокировать аккаунт при нарушении условий использования.</p>
+            
+            <h3>3. Подача заявок</h3>
+            <p>3.1. Заявка на аренду помещения является предварительной и не обязывает стороны к заключению договора.</p>
+            <p>3.2. После подачи заявки с пользователем связывается менеджер для уточнения деталей.</p>
+            <p>3.3. Окончательная стоимость определяется после согласования всех условий.</p>
+            
+            <h3>4. Оплата</h3>
+            <p>4.1. Оплата производится после подтверждения заявки администратором.</p>
+            <p>4.2. Чек об оплате формируется автоматически и отправляется пользователю.</p>
+            <p>4.3. Возврат средств осуществляется согласно договору аренды.</p>
+            
+            <h3>5. Ответственность сторон</h3>
+            <p>5.1. Администрация не несёт ответственности за временные технические сбои.</p>
+            <p>5.2. Пользователь обязуется не использовать сервис в противоправных целях.</p>
+            <p>5.3. Все споры решаются путём переговоров, при невозможности — в судебном порядке.</p>
+            
+            <h3>6. Конфиденциальность</h3>
+            <p>6.1. Персональные данные пользователя обрабатываются в соответствии с ФЗ-152.</p>
+            <p>6.2. Данные не передаются третьим лицам без согласия пользователя.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-primary btn-block" id="acceptTermsBtn">
+                <i class="fas fa-check"></i> Я ознакомился и принимаю условия
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

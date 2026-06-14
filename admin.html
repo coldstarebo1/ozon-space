@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель | OZON Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="OZON Space - коворкинг центр для складов, ПВЗ и логистики. Аренда помещений от 50 м².">
+<meta name="keywords" content="коворкинг, склад, ПВЗ, логистика, аренда, OZON">
+<meta name="robots" content="index, follow">
+
+<!-- Для поисковиков -->
+<meta name="yandex-verification" content="код_из_Яндекс_Вебмастер">
+<meta name="google-site-verification" content="код_из_Google_Search">
+
+<!-- Open Graph -->
+<meta property="og:title" content="OZON Space | Коворкинг центр">
+<meta property="og:description" content="Современные пространства для бизнеса">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://USERNAME.github.io/ozon-space/">
+</head>
+<body class="admin-page">
+    <nav class="navbar admin-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">OZON <span class="highlight">Space</span></span>
+                        <span class="admin-badge">ADMIN</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#dashboard" class="nav-link active"><i class="fas fa-chart-line"></i> Дашборд</a></li>
+                    <li><a href="#orders" class="nav-link"><i class="fas fa-clipboard-list"></i> Заявки</a></li>
+                    <li><a href="#banned" class="nav-link"><i class="fas fa-ban"></i> Забаненные</a></li>
+                    <li>
+                        <div class="user-menu">
+                            <div class="user-avatar admin-avatar"><i class="fas fa-user-shield"></i></div>
+                            <div class="user-info">
+                                <div class="user-name" id="headerAdminName">Администратор</div>
+                                <div class="user-role">Администратор</div>
+                            </div>
+                            <button class="btn-logout" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Выйти</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <div class="container">
+            <div class="admin-header fade-in">
+                <div>
+                    <h1>Панель администратора</h1>
+                    <p>Управление заявками и пользователями</p>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn btn-outline" id="exportDataBtn"><i class="fas fa-download"></i> Экспорт PDF</button>
+                    <button class="btn btn-primary" id="refreshDataBtn"><i class="fas fa-sync-alt"></i> Обновить</button>
+                </div>
+            </div>
+
+            <div class="stats-grid admin-stats fade-in" id="dashboard">
+                <div class="stat-card">
+                    <div class="stat-icon bg-blue"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="adminStatTotal">0</div>
+                        <div class="stat-label">Всего заявок</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-orange"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="adminStatNew">0</div>
+                        <div class="stat-label">Новые заявки</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-green"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="adminStatPaid">0</div>
+                        <div class="stat-label">Оплачено</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bg-purple"><i class="fas fa-ruble-sign"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="adminStatRevenue">0 ₽</div>
+                        <div class="stat-label">Выручка</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section fade-in" id="orders">
+                <div class="section-header-row">
+                    <h2 class="section-title-small"><i class="fas fa-clipboard-list"></i> Управление заявками</h2>
+                    <div class="admin-controls">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Поиск по имени, email, телефону...">
+                        </div>
+                        <select id="filterStatus" class="filter-select">
+                            <option value="all">Все статусы</option>
+                            <option value="new">Новые</option>
+                            <option value="priced">Ожидают оплаты</option>
+                            <option value="paid">Оплачено</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-sort="id">ID <i class="fas fa-sort"></i></th>
+                                <th class="sortable" data-sort="date">Дата <i class="fas fa-sort"></i></th>
+                                <th>Клиент</th>
+                                <th>Услуга</th>
+                                <th class="sortable" data-sort="status">Статус <i class="fas fa-sort"></i></th>
+                                <th class="sortable" data-sort="price">Цена <i class="fas fa-sort"></i></th>
+                                <th>Пожелания</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody"></tbody>
+                    </table>
+                    <div class="empty-state" id="adminEmptyState" style="display: none;">
+                        <i class="fas fa-inbox"></i>
+                        <h3>Заявок не найдено</h3>
+                        <p>Попробуйте изменить параметры фильтрации</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section fade-in" id="banned">
+                <div class="section-header-row">
+                    <h2 class="section-title-small"><i class="fas fa-ban"></i> Забаненные пользователи</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Имя</th>
+                                <th>Email</th>
+                                <th>Телефон</th>
+                                <th>Дата бана</th>
+                                <th>Причина</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bannedTableBody"></tbody>
+                    </table>
+                    <div class="empty-state" id="bannedEmptyState">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Забаненных пользователей нет</h3>
+                        <p>Все клиенты соблюдают правила</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно подтверждения заявки -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content modal-sm">
+            <button class="modal-close" id="closeConfirmModal"><i class="fas fa-times"></i></button>
+            <div class="confirm-modal-content">
+                <div class="confirm-icon"><i class="fas fa-check-circle"></i></div>
+                <h2>Подтвердить заявку?</h2>
+                <p>Заявка будет подтверждена и клиент получит счёт на оплату</p>
+                <div class="confirm-details" id="confirmDetails"></div>
+                <div class="modal-actions">
+                    <button class="btn btn-outline" id="cancelConfirmBtn">Отмена</button>
+                    <button class="btn btn-primary" id="confirmBtn"><i class="fas fa-check"></i> Подтвердить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно бана -->
+    <div class="modal-overlay" id="banModal">
+        <div class="modal-content modal-sm">
+            <button class="modal-close" id="closeBanModal"><i class="fas fa-times"></i></button>
+            <div class="ban-modal-content">
+                <div class="ban-icon"><i class="fas fa-ban"></i></div>
+                <h2>Забанить пользователя?</h2>
+                <p>Пользователь будет заблокирован и не сможет создавать новые заявки</p>
+                <div class="form-group">
+                    <label>Причина бана</label>
+                    <textarea id="banReason" rows="3" placeholder="Укажите причину блокировки..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-outline" id="cancelBanBtn">Отмена</button>
+                    <button class="btn btn-danger" id="executeBanBtn"><i class="fas fa-ban"></i> Забанить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OZON Space | Коворкинг центр</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="OZON Space - коворкинг центр для складов, ПВЗ и логистики. Аренда помещений от 50 м².">
+<meta name="keywords" content="коворкинг, склад, ПВЗ, логистика, аренда, OZON">
+<meta name="robots" content="index, follow">
+
+<!-- Для поисковиков -->
+<meta name="yandex-verification" content="код_из_Яндекс_Вебмастер">
+<meta name="google-site-verification" content="код_из_Google_Search">
+
+<!-- Open Graph -->
+<meta property="og:title" content="OZON Space | Коворкинг центр">
+<meta property="og:description" content="Современные пространства для бизнеса">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://USERNAME.github.io/ozon-space/">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="logo-text">OZON <span class="highlight">Space</span></span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Главная</a></li>
+                    <li><a href="#about" class="nav-link">О нас</a></li>
+                    <li><a href="#services" class="nav-link">Услуги</a></li>
+                    <li><a href="#pricing" class="nav-link">Цены</a></li>
+                    <li><a href="#quick-order" class="nav-link">Быстрая заявка</a></li>
+                    <li><a href="login.html" class="btn-login"><i class="fas fa-user"></i> Войти</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Коворкинг центр <span class="gradient-text">OZON Space</span></h1>
+                <p class="hero-subtitle">Современные пространства для складов, ПВЗ и логистики. Быстрое подключение за 24 часа.</p>
+                <div class="hero-buttons">
+                    <a href="#quick-order" class="btn btn-primary btn-lg">
+                        <i class="fas fa-bolt"></i> Быстрая заявка
+                    </a>
+                    <a href="#services" class="btn btn-outline btn-lg">
+                        <i class="fas fa-info-circle"></i> Наши услуги
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Клиентов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24ч</div>
+                        <div class="stat-label">Подключение</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Довольных</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Почему выбирают <span class="highlight">нас</span></h2>
+                <p class="section-subtitle">Профессиональный подход к организации вашего бизнеса</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Надёжность</h3>
+                    <p>Гарантия сохранности вашего имущества 24/7 с системой видеонаблюдения</p>
+                </div>
+                <div class="feature-card fade-in" style="animation-delay: 0.1s">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Скорость</h3>
+                    <p>Подключение и начало работы в течение 24 часов после заявки</p>
+                </div>
+                <div class="feature-card fade-in" style="animation-delay: 0.2s">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Выгодные цены</h3>
+                    <p>Гибкая система скидок и прозрачное ценообразование без скрытых платежей</p>
+                </div>
+                <div class="feature-card fade-in" style="animation-delay: 0.3s">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Поддержка</h3>
+                    <p>Персональный менеджер и техническая поддержка на всех этапах</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши <span class="highlight">услуги</span></h2>
+                <p class="section-subtitle">Комплексные решения для вашего бизнеса</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in" onclick="openQuickOrder('ПВЗ')">
+                    <div class="service-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Пункты выдачи заказов (ПВЗ)</h3>
+                        <p>Готовые помещения под брендбук OZON с высоким трафиком и полным оборудованием</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Соответствие стандартам</li>
+                            <li><i class="fas fa-check"></i> Готовый ремонт</li>
+                            <li><i class="fas fa-check"></i> Оборудование включено</li>
+                        </ul>
+                        <button class="btn btn-service">Выбрать <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in" style="animation-delay: 0.1s" onclick="openQuickOrder('Склад')">
+                    <div class="service-image">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Складские помещения</h3>
+                        <p>Отапливаемые склады от 50 до 1000 м² с погрузочными доками и охраной</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Площадь от 50 м²</li>
+                            <li><i class="fas fa-check"></i> Погрузочные доки</li>
+                            <li><i class="fas fa-check"></i> Охрана 24/7</li>
+                        </ul>
+                        <button class="btn btn-service">Выбрать <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in" style="animation-delay: 0.2s" onclick="openQuickOrder('Логистика')">
+                    <div class="service-image">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Логистика и развозки</h3>
+                        <p>Офисы для курьеров и логистов с парковкой, зонами отдыха и складскими помещениями</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Парковка для транспорта</li>
+                            <li><i class="fas fa-check"></i> Зоны отдыха</li>
+                            <li><i class="fas fa-check"></i> Кухня и душевые</li>
+                        </ul>
+                        <button class="btn btn-service">Выбрать <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Стоимость <span class="highlight">услуг</span></h2>
+                <p class="section-subtitle">Прозрачное ценообразование без скрытых платежей</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-header">
+                        <h3>ПВЗ</h3>
+                        <div class="pricing-price">55 000 ₽<span>/мес</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Площадь 30-80 м²</li>
+                        <li><i class="fas fa-check"></i> Готовый ремонт</li>
+                        <li><i class="fas fa-check"></i> Оборудование OZON</li>
+                        <li><i class="fas fa-check"></i> Высокий трафик</li>
+                        <li><i class="fas fa-check"></i> Поддержка запуска</li>
+                    </ul>
+                    <button class="btn btn-pricing" onclick="openQuickOrder('ПВЗ')">Выбрать тариф</button>
+                </div>
+                
+                <div class="pricing-card featured fade-in" style="animation-delay: 0.1s">
+                    <div class="pricing-badge">Популярное</div>
+                    <div class="pricing-header">
+                        <h3>Склад</h3>
+                        <div class="pricing-price">700 ₽<span>/м²/мес</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> От 50 до 1000 м²</li>
+                        <li><i class="fas fa-check"></i> Отапливаемое</li>
+                        <li><i class="fas fa-check"></i> Погрузочные доки</li>
+                        <li><i class="fas fa-check"></i> Охрана 24/7</li>
+                        <li><i class="fas fa-check"></i> Видеонаблюдение</li>
+                    </ul>
+                    <button class="btn btn-pricing" onclick="openQuickOrder('Склад')">Выбрать тариф</button>
+                </div>
+                
+                <div class="pricing-card fade-in" style="animation-delay: 0.2s">
+                    <div class="pricing-header">
+                        <h3>Логистика</h3>
+                        <div class="pricing-price">78 000 ₽<span>/мес</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Офис + склад</li>
+                        <li><i class="fas fa-check"></i> Парковка</li>
+                        <li><i class="fas fa-check"></i> Зоны отдыха</li>
+                        <li><i class="fas fa-check"></i> Кухня и душевые</li>
+                        <li><i class="fas fa-check"></i> Переговорные</li>
+                    </ul>
+                    <button class="btn btn-pricing" onclick="openQuickOrder('Логистика')">Выбрать тариф</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quick-order" class="quick-order section">
+        <div class="container">
+            <div class="quick-order-wrapper">
+                <div class="quick-order-info">
+                    <h2>Быстрая заявка</h2>
+                    <p>Оставьте заявку прямо сейчас и получите персональное предложение в течение 24 часов</p>
+                    <ul class="quick-order-benefits">
+                        <li><i class="fas fa-check-circle"></i> Мгновенная обработка</li>
+                        <li><i class="fas fa-check-circle"></i> Персональный менеджер</li>
+                        <li><i class="fas fa-check-circle"></i> Выгодные условия</li>
+                    </ul>
+                </div>
+                <div class="quick-order-form">
+                    <form id="quickOrderForm">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Ваше имя *</label>
+                            <input type="text" id="quickName" required placeholder="Иван Петров">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Телефон *</label>
+                            <input type="tel" id="quickPhone" required placeholder="+7 (999) 000-00-00">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="quickEmail" placeholder="example@mail.ru">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-list"></i> Услуга *</label>
+                            <select id="quickService" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="ПВЗ">Пункт выдачи заказов (ПВЗ)</option>
+                                <option value="Склад">Складское помещение</option>
+                                <option value="Логистика">Логистика и развозки</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Пожелания</label>
+                            <textarea id="quickMessage" rows="3" placeholder="Расскажите о ваших требованиях..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>OZON Space</h3>
+                    <p>Современный коворкинг центр для складов, ПВЗ и логистики</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="#" onclick="openQuickOrder('ПВЗ')">ПВЗ</a></li>
+                        <li><a href="#" onclick="openQuickOrder('Склад')">Склады</a></li>
+                        <li><a href="#" onclick="openQuickOrder('Логистика')">Логистика</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@ozonspace.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Примерная, 1</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OZON Space. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
